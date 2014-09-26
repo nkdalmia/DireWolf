@@ -1,0 +1,32 @@
+<div class="page-header" style="margin-top:60px;">
+  <h1>Recommended Jobs</h1>
+</div>
+
+<br>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Employer</th>
+    <th>Category</th>
+    <th>Tags</th>
+    <th>Deadline</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% current_user.recommended_jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.title, job , :class => "btn btn-link"%></td>
+        <td><%= job.description %></td>
+        <td><%= job.employer.company_name %></td>
+        <td><%= job.category.name %></td>
+        <td><%= job.tag_list %></td>
+        <td><%= job.deadline %></td>
+      </tr>
+  <% end %>
+
+  </tbody>
+</table>

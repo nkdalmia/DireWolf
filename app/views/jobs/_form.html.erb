@@ -12,32 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
 
   <%= f.hidden_field :employer_id, :value => current_employer.id %>
   <div class="field">
-    <%= f.label :category_id %><br>
+    <%= f.label :category_id %>
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :deadline %><br>
+    <%= f.label :deadline %>
     <%= f.datetime_select :deadline %>
   </div>
   <div class="field">
-    <%= f.label :Tags %><br>
+    <%= f.label :Tags %>
     <%= f.text_field :tag_list, :placeholder => "Add comma seperated tags" %>
   </div>
-  <div class="field">
-    <%= f.label :public %><br>
-    <%= f.check_box :public %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default"%>
   </div>
 <% end %>

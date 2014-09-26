@@ -1,5 +1,4 @@
-<h1>New job_application</h1>
-
+<div class="page-header">
+  <h1>Job Application for <%= "#{@job.title} @ #{@job.employer.company_name}"%></h1>
+</div>
 <%= render 'form' %>
-
-<%= link_to 'Back', job_applications_path %>

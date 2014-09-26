@@ -12,37 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
     <div class="field">
-      <%= f.label :email %><br>
+      <%= f.label :email %>
       <%= f.email_field :email %>
     </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label :phone %>
     <%= f.text_field :phone %>
   </div>
-    <!--<div class="field">
-      <%= f.label :password %><br>
+
+    <div class="field">
+      <%= f.label :password %>
       <%= f.password_field :password %>
     </div>
     <div class="field">
-      <%= f.label :password_confirmation %><br>
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
-    </div>-->
-
-    <div class="field">
-      <%= f.label :skills %><br>
-      <%= f.text_field :skill_list, :placeholder => "Add comma separated tags" %>
     </div>
 
     <div class="field">
-      <%= f.label :Resume %><br>
-      <%= f.text_area :resume, :col => 100, :row => 30 %>
+      <%= f.label :skills %>
+      <%= f.text_field :skill_list, :placeholder => "Add comma seperated tags" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Resume %>
+      <%= f.text_area :resume, :style => "width:500px; height:300px;" %>
     </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-default"%>
   </div>
 <% end %>

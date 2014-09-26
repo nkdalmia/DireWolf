@@ -1,55 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Job Details</h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <td>Title</td>
+    <td><%= @job.title %></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><%= @job.description %></td>
+  </tr>
+  <tr>
+    <td>Deadline</td>
+    <td><%= @job.deadline %></td>
+  </tr>
+  <tr>
+    <td>Tags</td>
+    <td><%= @job.tag_list%></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @job.employer.company_name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @job.category.name %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @job.tag_list %>
-</p>
-
-<p>
-  <strong>Deadline:</strong>
-  <%= @job.deadline %>
-</p>
-
-<p>
-  <strong>Public:</strong>
-  <%= @job.public %>
-</p>
 
 <% if current_employer && @job.employer == current_employer %>
-    <div><strong>Applications:</strong></div>
+    <%= link_to 'Edit', edit_job_path(@job), :class => "btn btn-default" %>
+    <div class="page-header">
+      <h1>Applicants</h1>
+    </div>
     <% @job.applications.each do |application| %>
-        <div><%= link_to application.user.name, application %></div>
-    <% end %><br>
-    <div><%= link_to 'Edit', edit_job_path(@job) %></div>
+        <div><%= link_to application.user.name, application, :class => "btn btn-link" %></div>
+    <% end %>
 <% end %>
 
 <% if current_user %>
     <% if current_user.applied_for(@job.id) %>
         <div>You have already submitted an application for this job</div>
-        <div><%= link_to 'Withdraw Application', current_user.application_for(@job.id), :method => :delete, data: { confirm: 'Are you sure?' } %></div>
+        <div><br><%= link_to 'Withdraw Application', current_user.application_for(@job.id), :method => :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger"%></div>
     <% else %>
-        <div><%= link_to 'Submit an Application', new_job_application_path(:job_id => @job.id) %></div>
+        <% if Time.now > @job.deadline %>
+            <div>This job is expired.</div>
+        <% else %>
+            <div><%= link_to 'Submit an Application', new_job_application_path(:job_id => @job.id), :class => "btn btn-default"%></div>
+        <% end %>
     <% end %>
 <% end %>
 
-<%= link_to 'Back', jobs_path %>
+<% if !current_user && Time.zone.now > @job.deadline %>
+    <div>This job is expired.</div>
+<% end %>

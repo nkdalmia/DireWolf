@@ -1,48 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Application for <%= @job_application.job.title %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <td>Name</td>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><%= @user.phone %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <td>Skills</td>
+    <td><%= @user.skill_list %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+<div class="page-header">
+  <h1>Resume</h1>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<%= @user.resume.gsub(/\n/, '<br>').html_safe %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.skill_list %>
-</p>
+<div class="page-header">
+  <h1>Cover Letter</h1>
+</div>
 
-<p>
-  <strong>Resume:</strong>
-</p>
+<%= @job_application.cover_letter.gsub(/\n/, '<br>').html_safe %>
 
-<p>
-  <%= @user.resume %>
-</p>
+<div class="page-header">
+  <h1>Status</h1>
+</div>
 
-<p>
-  <strong>Cover Letter:</strong>
-</p>
-
-<p>
-  <%= @job_application.cover_letter %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= form_for(@job_application) do |f| %>
-      <%= f.collection_select :status_id, JobApplication::Status.all, :id, :name %>
-      <%= f.submit "Change" %>
-  <% end %>
-
-</p>
-
-<%= link_to 'Back', job_applications_path %>
+<%= form_for(@job_application) do |f| %>
+    <%= f.collection_select :status_id, JobApplication::Status.all, :id, :name %><br>
+    <%= f.submit "Change" , :class => "btn btn-default"%>
+<% end %>

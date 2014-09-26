@@ -1,0 +1,42 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">DireWolf Job Portal</a>
+      <ul class="nav nav-pills pull-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <% if current_user %>
+                <%= current_user.name %> <span class="caret"></span>
+            <% elsif current_employer %>
+                <%= current_employer.company_name %> <span class="caret"></span>
+            <% elsif current_admin %>
+                <%= current_admin.name %> <span class="caret"></span>
+            <% else %>
+                Login <span class="caret"></span>
+            <% end %>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <% if current_user %>
+                <%= render 'home/user_dropdown' %>
+            <% elsif current_employer %>
+                <%= render 'home/employer_dropdown' %>
+            <% elsif current_admin %>
+                <%= render 'home/admin_dropdown' %>
+            <% else %>
+                <li><%= link_to 'JobSeeker', new_user_session_path %></li>
+                <li><%= link_to 'Employer', new_employer_session_path %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+    .brand:hover,
+    .brand:focus {
+        background-color: transparent;
+        color: #999999;
+    }
+</style>

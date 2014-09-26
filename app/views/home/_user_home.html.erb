@@ -1,2 +1,4 @@
-<div><%= link_to "My Job Applications", user_applications_path(:id => current_user.id) %></div>
-<div><%= link_to "View all Jobs", jobs_path %></div>
+<div style="margin-top:50px;">
+  <% @jobs = Job.where("deadline >= ?", Time.zone.now) %>
+  <%= render template: "jobs/index.html.erb" %>
+</div>
