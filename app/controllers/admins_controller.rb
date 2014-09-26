@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin, :only => [:show, :update, :edit]
+  before_action :check_logged_in_admin, :except => [:index, :new, :create]
 
   # GET /admins
   # GET /admins.json
@@ -63,10 +64,17 @@ class AdminsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin
-      @admin = Admin.find(params[:id])
+
+  def check_logged_in_admin
+    unless (current_admin == @admin)
+      redirect_to root_path
     end
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin
+    @admin = Admin.find(params[:id])
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params

@@ -13,35 +13,15 @@ Rails.application.routes.draw do
   devise_for :admins, :skip => [:registrations]
 
   resources :jobs
+  resources :job_applications, :except => [:new]
 
   resources :users, :except => :index
   resources :employers
   resources :admins
 
-
-
-=begin
-  scope '/employers' do
-
-  end
-=end
-  #get 'admins' => 'admins#show', :as => 'admin_root'
-  #Routes for Admin Interactions
-=begin
-  get 'admin_menus' => 'admin_menus#index', :as => 'admin_root'
-  scope '/admin_menus' do
-
-    as :admin do
-      get 'site_admin/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'
-      put 'site_admin' => 'devise/registrations#update', :as => 'admin_registration'
-    end
-
-  end
-=end
-
-  #, :path_prefix => 'manage'
-  #get 'admins' => 'admins#show', :as => 'admin_root'
-  #devise_for :admins  get 'admins' => 'admins#show', :as => 'admin_root'
+  get 'user/:id/job-applications' => 'users#job_applications', :as => 'user_applications'
+  get 'job/:job_id/new-application' => 'job_applications#new', :as => 'new_job_application'
+  get 'employer/:id/jobs' => 'employers#jobs', :as => 'employer_jobs'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,14 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-    a = 1
-  end
+  before_action :set_user, :only => [:show, :edit, :update, :job_applications]
+  before_action :check_logged_in_user
 
   # GET /users/1
   # GET /users/1.json
@@ -31,7 +25,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root, notice: 'You have successfully created a jobseeker account.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -45,7 +39,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Profile successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -54,17 +48,19 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def job_applications
+    @job_applications = @user.job_applications
+    render :text => "You have not applied for any jobs." if @job_applications.count == 0
   end
 
   private
+
+  def check_logged_in_user
+    unless (current_user == @user)
+      redirect_to root_path
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -72,6 +68,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :phone, :email, :password, :password_confirmation, :resume, :skill_list)
     end
 end

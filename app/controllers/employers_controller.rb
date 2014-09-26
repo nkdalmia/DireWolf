@@ -1,6 +1,9 @@
 class EmployersController < ApplicationController
-  before_action :authenticate_admin!
-  before_action :set_employer, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_admin!, only: [:index, :create, :new, :destroy]
+  before_action :authenticate_employer!, only: [:update, :edit, :show, :jobs]
+  before_action :set_employer, only: [:show, :edit, :update, :destroy, :jobs]
+  before_action :check_logged_in_employer, only: [:update, :edit, :show, :jobs]
 
   # GET /employers
   # GET /employers.json
@@ -29,7 +32,7 @@ class EmployersController < ApplicationController
 
     respond_to do |format|
       if @employer.save
-        format.html { redirect_to @employer, notice: 'Employer was successfully created.' }
+        format.html { redirect_to @employer, notice: 'Employer is successfully created.' }
         format.json { render :show, status: :created, location: @employer }
       else
         format.html { render :new }
@@ -43,7 +46,7 @@ class EmployersController < ApplicationController
   def update
     respond_to do |format|
       if @employer.update(employer_params)
-        format.html { redirect_to @employer, notice: 'Employer was successfully updated.' }
+        format.html { redirect_to @employer, notice: 'Profile successfully updated.' }
         format.json { render :show, status: :ok, location: @employer }
       else
         format.html { render :edit }
@@ -62,7 +65,18 @@ class EmployersController < ApplicationController
     end
   end
 
+  def jobs
+    @jobs = @employer.posted_jobs
+  end
+
   private
+
+    def check_logged_in_employer
+      unless (current_employer == @employer)
+        redirect_to root_path
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_employer
       @employer = Employer.find(params[:id])

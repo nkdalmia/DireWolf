@@ -1,10 +1,12 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_employer!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :check_logged_in_employer, only: [:edit, :update, :destroy]
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.filter(params)
   end
 
   # GET /jobs/1
@@ -54,21 +56,28 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
+    employer_id = @job.employer_id
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to employer_jobs_url(:id => employer_id), notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params[:id])
-    end
+  def check_logged_in_employer
+    unless (current_employer.posted_jobs.where(:id => @job.id).first)
+      redirect_to root_path
+      end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:title, :description, :employer_id, :category_id, :deadline, :public)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_job
+    @job = Job.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def job_params
+    params.require(:job).permit(:title, :description, :employer_id, :category_id, :deadline, :tag_list)
+  end
 end
