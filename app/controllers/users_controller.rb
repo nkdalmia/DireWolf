@@ -39,6 +39,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        sign_out(current_user)
+        sign_in(@user, :bypass => true)
         format.html { redirect_to @user, notice: 'Profile successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -49,8 +51,7 @@ class UsersController < ApplicationController
   end
 
   def job_applications
-    @job_applications = @user.job_applications
-    render :text => "You have not applied for any jobs." if @job_applications.count == 0
+    @job_applications = @user.job_applications    
   end
 
   private

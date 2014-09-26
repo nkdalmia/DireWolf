@@ -32,7 +32,7 @@ class EmployersController < ApplicationController
 
     respond_to do |format|
       if @employer.save
-        format.html { redirect_to @employer, notice: 'Employer is successfully created.' }
+        format.html { redirect_to employers_path, notice: 'Employer is successfully created.' }
         format.json { render :show, status: :created, location: @employer }
       else
         format.html { render :new }
@@ -46,6 +46,8 @@ class EmployersController < ApplicationController
   def update
     respond_to do |format|
       if @employer.update(employer_params)
+        sign_out(current_employer)
+        sign_in(@employer, :bypass => true)
         format.html { redirect_to @employer, notice: 'Profile successfully updated.' }
         format.json { render :show, status: :ok, location: @employer }
       else

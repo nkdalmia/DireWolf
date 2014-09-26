@@ -16,4 +16,15 @@ class User < ActiveRecord::Base
     self.job_applications.where(:job_id => job_id).first
   end
 
+  def recommended_jobs
+    job_tags = self.job_applications.joins{job.tags}.pluck("tags.name").uniq
+    recommended_jobs = []
+    Job.all.each do |job|
+      if (job.tag_list & job_tags).count > 0
+        recommended_jobs.push(job) unless self.applied_for(job.id)
+      end
+    end
+    return recommended_jobs
+  end
+
 end

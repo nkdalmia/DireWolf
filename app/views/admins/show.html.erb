@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Profile</h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @admin.name %>
-</p>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <td>Name</td>
+    <td><%= @admin.name %></td>
+  </tr>
+  <tr>
+    <td>UserName</td>
+    <td><%= @admin.username %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= @admin.email %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Username:</strong>
-  <%= @admin.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @admin.email %>
-</p>
-
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+<br>
+<%= link_to 'Edit', edit_admin_path(@admin), :class=> "btn btn-default" %>

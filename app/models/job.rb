@@ -8,7 +8,7 @@ class Job < ActiveRecord::Base
   validates_presence_of :employer_id, :category_id, :title, :deadline
 
   def self.filter params
-    query = Job.all
+    query = Job.where("deadline >= ?", Time.zone.now)
     query = apply_employer_filter(params[:employer].downcase, query) if params[:employer] && params[:employer] != ""
     query = apply_title_filter(params[:title].downcase, query) if params[:title] && params[:title] != ""
     query = apply_content_filter(params[:content].downcase, query) if params[:content] && params[:content] != ""
