@@ -1,0 +1,11 @@
+<% if user_signed_in?%>
+    <%= render 'user_home' %>
+<% elsif admin_signed_in? %>
+    <%= render 'admin_home' %>
+<% elsif employer_signed_in? %>
+    <%= render 'employer_home' %>
+<% else %>
+    <div><%= link_to "JobSeeker Login", user_session_path %></div>
+    <div><%= link_to "Employer Login", employer_session_path %></div>
+    <div><%= link_to "View all Jobs", jobs_path %></div>
+<% end %>
