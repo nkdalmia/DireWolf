@@ -1,1 +1,4 @@
-<div><%= link_to "My Posted Jobs", employer_jobs_path(:id => current_employer.id) %></div>
+<div style="margin-top:50px;">
+  <% @jobs = current_employer.posted_jobs %>
+  <%= render template: "employers/jobs.html.erb" %>
+</div>

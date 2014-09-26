@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Profile</h1>
+</div>
 
-<p>
-  <strong>Company name:</strong>
-  <%= @employer.company_name %>
-</p>
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+    <td>Company Name</td>
+    <td><%= @employer.company_name %></td>
+  </tr>
+  <tr>
+    <td>Contact Name</td>
+    <td><%= @employer.contact_name %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= @employer.email %></td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Contact name:</strong>
-  <%= @employer.contact_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @employer.email %>
-</p>
-
-<%= link_to 'Edit', edit_employer_path(@employer) %> |
-<%= link_to 'Back', employers_path %>
+<br>
+<%= link_to 'Edit', edit_employer_path(@employer), :class=> "btn btn-default" %>
