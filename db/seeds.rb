@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#JobApplication Status Values
+::JobApplication::Status.create(:name => 'Pending')
+::JobApplication::Status.create(:name => 'Not a Fit')
+::JobApplication::Status.create(:name => 'Future Interview')
+
+#Add Default Admin User
+
+#Add Some Employees
+
+#Add Some Users

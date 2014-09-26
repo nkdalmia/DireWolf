@@ -40,3 +40,7 @@ gem 'devise'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+gem 'acts_as_taggable_on'
+
+gem 'squeel'
