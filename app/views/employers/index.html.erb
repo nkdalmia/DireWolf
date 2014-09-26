@@ -16,8 +16,6 @@
         <td><%= employer.company_name %></td>
         <td><%= employer.contact_name %></td>
         <td><%= employer.email %></td>
-        <td><%= link_to 'Show', employer %></td>
-        <td><%= link_to 'Edit', edit_employer_path(employer) %></td>
         <td><%= link_to 'Destroy', employer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

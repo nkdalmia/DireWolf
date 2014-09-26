@@ -1,24 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Job:</strong>
-  <%= @job_application.job %>
+  <strong>Name:</strong>
+  <%= @user.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @job_application.user %>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
 </p>
 
 <p>
-  <strong>Cover letter:</strong>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.skill_list %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+</p>
+
+<p>
+  <%= @user.resume %>
+</p>
+
+<p>
+  <strong>Cover Letter:</strong>
+</p>
+
+<p>
   <%= @job_application.cover_letter %>
 </p>
 
 <p>
   <strong>Status:</strong>
-  <%= @job_application.status %>
+  <%= form_for(@job_application) do |f| %>
+      <%= f.collection_select :status_id, JobApplication::Status.all, :id, :name %>
+      <%= f.submit "Change" %>
+  <% end %>
+
 </p>
 
-<%= link_to 'Edit', edit_job_application_path(@job_application) %> |
 <%= link_to 'Back', job_applications_path %>

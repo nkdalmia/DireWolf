@@ -11,13 +11,18 @@
 </p>
 
 <p>
-  <strong>Employer:</strong>
-  <%= @job.employer %>
+  <strong>Company:</strong>
+  <%= @job.employer.company_name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @job.category %>
+  <%= @job.category.name %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @job.tag_list %>
 </p>
 
 <p>
@@ -30,5 +35,21 @@
   <%= @job.public %>
 </p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
+<% if current_employer && @job.employer == current_employer %>
+    <div><strong>Applications:</strong></div>
+    <% @job.applications.each do |application| %>
+        <div><%= link_to application.user.name, application %></div>
+    <% end %><br>
+    <div><%= link_to 'Edit', edit_job_path(@job) %></div>
+<% end %>
+
+<% if current_user %>
+    <% if current_user.applied_for(@job.id) %>
+        <div>You have already submitted an application for this job</div>
+        <div><%= link_to 'Withdraw Application', current_user.application_for(@job.id), :method => :delete, data: { confirm: 'Are you sure?' } %></div>
+    <% else %>
+        <div><%= link_to 'Submit an Application', new_job_application_path(:job_id => @job.id) %></div>
+    <% end %>
+<% end %>
+
 <%= link_to 'Back', jobs_path %>

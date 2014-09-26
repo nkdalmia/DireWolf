@@ -15,5 +15,18 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Skills:</strong>
+  <%= @user.skill_list %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+</p>
+
+<p>
+  <%= @user.resume %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', root_path %>
