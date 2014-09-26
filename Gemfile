@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
@@ -44,3 +43,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'acts_as_taggable_on'
 
 gem 'squeel'
+
+# BootStrapping the System
+gem 'twitter-bootstrap-rails', '2.2.6'
