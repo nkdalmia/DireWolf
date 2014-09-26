@@ -1,45 +1,54 @@
 Rails.application.routes.draw do
 
-#  resources :jobs
+  root 'home#index'
 
-  #Routes for Employers Interactions
+  devise_for :users
+
   devise_for :employers, :skip => [:registrations]
   as :employers do
     get 'employers/edit' => 'devise/registrations#edit', :as => 'edit_employer_registration'
     put 'employers' => 'devise/registrations#update', :as => 'employer_registration'
   end
+
+  devise_for :admins, :skip => [:registrations]
+
+  resources :jobs
+
+  resources :users, :except => :index
+  resources :employers
+  resources :admins
+
+
+
+=begin
   scope '/employers' do
-    resources :jobs
+
   end
+=end
   #get 'admins' => 'admins#show', :as => 'admin_root'
-
-
-  #get 'admins' => 'admins#show', :as => 'admin_root'
-
   #Routes for Admin Interactions
+=begin
   get 'admin_menus' => 'admin_menus#index', :as => 'admin_root'
   scope '/admin_menus' do
-    devise_for :admins, :path => 'site_admin', :skip => [:registrations]
+
     as :admin do
       get 'site_admin/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'
       put 'site_admin' => 'devise/registrations#update', :as => 'admin_registration'
     end
-    resources :admins, :path => 'manage_admins'
-    resources :employers, :path => 'manage_employers'
+
   end
+=end
 
   #, :path_prefix => 'manage'
   #get 'admins' => 'admins#show', :as => 'admin_root'
   #devise_for :admins  get 'admins' => 'admins#show', :as => 'admin_root'
 
-  devise_for :users, :path_prefix => 'my'
-  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  # root 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

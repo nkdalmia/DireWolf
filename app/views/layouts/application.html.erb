@@ -10,15 +10,15 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <% if user_signed_in?%>
-    <%= link_to "Edit Profile", edit_user_registration_path %>
+    <%= link_to "My Profile", current_user %></div>
     <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 <% elsif admin_signed_in? %>
-    <%= link_to "Home", admin_root_path %>
-    <%= link_to "Edit Profile", edit_admin_registration_path %>
+    <!--%= link_to "Home", admin_root_path %-->
     <%= link_to "Sign Out", destroy_admin_session_path, :method => :delete %>
+    <%= link_to "My Profile", current_admin %>
 <% elsif employer_signed_in? %>
-    <%= link_to "Home", employer_root_path %>
-    <%= link_to "Edit Profile", edit_employer_registration_path %>
+    <!--%= link_to "Home", employer_root_path %-->
+    <%= link_to "My Profile", current_employer %>
     <%= link_to "Sign Out", destroy_employer_session_path, :method => :delete %>
 <% end %>
 <%= yield %>
