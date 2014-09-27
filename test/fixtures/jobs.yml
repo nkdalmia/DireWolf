@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyString
-  employer_id: 
-  category_id: 
-  deadline: 2014-09-24 01:28:15
+  title: Software Engineer
+  description: Java programmer
+  employer_id: 1
+  category_id: 1
+  deadline: 2014-08-24 01:28:15
   public: false
 
 two:
-  title: MyString
-  description: MyString
-  employer_id: 
-  category_id: 
-  deadline: 2014-09-24 01:28:15
+  title: Hardware Engineer
+  description: ASIC
+  employer_id: 2
+  category_id: Category2
+  deadline: 2014-09-24 01:29:15
   public: false

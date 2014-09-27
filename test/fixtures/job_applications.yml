@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  job_id: 
-  user_id: 
-  cover_letter: MyText
-  status_id: 
+  job_id: 1
+  user_id: vgarg2
+  cover_letter: My Cover letter 1
+  status_id: 1
 
 two:
-  job_id: 
-  user_id: 
-  cover_letter: MyText
-  status_id: 
+  job_id: 2
+  user_id: abora
+  cover_letter: My Cover letter 2
+  status_id: 2
