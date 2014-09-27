@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Application for <%= @job_application.job.title %></h1>
+  <h2>Application for <%= @job_application.job.title %></h2>
 </div>
 
 <table class="table table-bordered">
@@ -24,19 +24,19 @@
 </table>
 
 <div class="page-header">
-  <h1>Resume</h1>
+  <h4>Resume</h4>
 </div>
 
 <%= @user.resume %>
 
 <div class="page-header">
-  <h1>Cover Letter</h1>
+  <h4>Cover Letter</h4>
 </div>
 
 <%= @job_application.cover_letter %>
 
 <div class="page-header">
-  <h1>Status</h1>
+  <h4>Status</h4>
 </div>
 
 <%= form_for(@job_application) do |f| %>
