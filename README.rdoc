@@ -1,10 +1,11 @@
 == README
 
-Super Admin username: gmenon
-Super Admin password: welcome
+Admin username/password: gmenon/welcome
 
 VLC IP address: 152.7.99.43 (Port - 3000)
-Path to Direwold folder: C:\Users\vgarg2\DireWolf
+Path to Direwolf folder: C:\Users\vgarg2\DireWolf
 
 Planned improvements during re-submission phase:
-1. UI upgrade to make it more user friendly and good looking
+1. Implement Features worth Extra Credit
+2. UI upgrade to make it more user friendly and good looking
+
