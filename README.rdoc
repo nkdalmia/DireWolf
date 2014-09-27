@@ -3,8 +3,7 @@
 Super Admin username: gmenon
 Super Admin password: welcome
 
-VLC IP address: 152.7.99.43:80 
-Port - 3000
+VLC IP address: 152.7.99.43 (Port - 3000)
 Path to Direwold folder: C:\Users\vgarg2\DireWolf
 
 Planned improvements during re-submission phase:
