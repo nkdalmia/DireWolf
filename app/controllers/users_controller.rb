@@ -37,8 +37,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(remove_password_when_empty(user_params))
         sign_out(current_user)
         sign_in(@user, :bypass => true)
         format.html { redirect_to @user, notice: 'Profile successfully updated.' }
@@ -62,6 +63,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def remove_password_when_empty(safe_params)
+    if safe_params[:password] == ""
+      safe_params.delete(:password)
+      safe_params.delete(:password_confirmation)
+    end
+
+    return safe_params
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -71,4 +81,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :phone, :email, :password, :password_confirmation, :resume, :skill_list)
     end
+
 end

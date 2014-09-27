@@ -27,13 +27,13 @@
   <h1>Resume</h1>
 </div>
 
-<%= @user.resume.gsub(/\n/, '<br>').html_safe %>
+<%= @user.resume %>
 
 <div class="page-header">
   <h1>Cover Letter</h1>
 </div>
 
-<%= @job_application.cover_letter.gsub(/\n/, '<br>').html_safe %>
+<%= @job_application.cover_letter %>
 
 <div class="page-header">
   <h1>Status</h1>
