@@ -21,7 +21,7 @@
         <td><%= job.category.name %></td>
         <td><%= job.deadline %></td>
         <td><%= link_to 'Edit', edit_job_path(job), :class => "btn btn-default" %>
-          &nbsp&nbsp<%= link_to 'Destroy', job, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-danger" %></td>
+          &nbsp&nbsp<%= link_to 'Delete', job, method: :delete, data: {confirm: "Are you sure?\nThis will also delete all the applications for this job."}, :class => "btn btn-danger" %></td>
       </tr>
   <% end %>
   </tbody>

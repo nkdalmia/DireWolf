@@ -27,7 +27,7 @@
 <% if current_employer && @job.employer == current_employer %>
     <%= link_to 'Edit', edit_job_path(@job), :class => "btn btn-default" %>
     <div class="page-header">
-      <h1>Applicants</h1>
+      <h3>Applicants</h3>
     </div>
     <% @job.applications.each do |application| %>
         <div><%= link_to application.user.name, application, :class => "btn btn-link" %></div>
