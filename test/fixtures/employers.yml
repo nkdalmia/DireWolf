@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  company_name: MyString
-  contact_name: MyString
-  email: MyString
+  company_name: Amazon
+  contact_name: Anand Bora
+  email: abora@ncsu.edu
+  encrypted_password: random
+  id: 1
 
 two:
-  company_name: MyString
-  contact_name: MyString
-  email: MyString
+  company_name: Qualcomm
+  contact_name: Vikrant Garg
+  email: vgarg2@ncsu.edu
+  encrypted_password: random12
+  id: 2

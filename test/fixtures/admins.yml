@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  username: MyString
-  email: MyString
-  encrypted_password: MyString
+  name: Govind Menon
+  username: gmenon
+  email: gmenon@ncsu.edu
+  encrypted_password: welcome
 
 two:
-  name: MyString
-  username: MyString
-  email: MyString
-  encrypted_password: MyString
+  name: Krunal Jhaveri
+  username: knjhaver
+  email: knjhaver@ncsu.edu
+  encrypted_password: welcome12

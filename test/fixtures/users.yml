@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  phone: MyString
+  name: Vikrant Garg
+  phone: 919349
+  id: 1
+  email: vgarg3@ncsu.edu
 
 two:
-  name: MyString
-  phone: MyString
+  name: Anand Bora
+  phone: 919876
+  id: 2
+  email: abora1@ncsu.edu
