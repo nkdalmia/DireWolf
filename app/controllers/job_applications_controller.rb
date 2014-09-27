@@ -28,7 +28,7 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.save
-        format.html { redirect_to user_applications_path(:id => @job_application.user_id), notice: 'Job application was successfully created.' }
+        format.html { redirect_to user_applications_path(:id => @job_application.user_id), notice: 'Job application was successfully submitted.' }
         format.json { render :show, status: :created, location: @job_application }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class JobApplicationsController < ApplicationController
     if current_user.job_applications.where(:id => @job_application).first
       @job_application.destroy
       respond_to do |format|
-        format.html { redirect_to user_applications_path(:id => current_user.id), notice: 'Job application was successfully destroyed.' }
+        format.html { redirect_to user_applications_path(:id => current_user.id), notice: 'Job application was successfully withdrawn.' }
         format.json { head :no_content }
       end
     end

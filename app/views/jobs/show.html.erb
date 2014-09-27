@@ -40,7 +40,7 @@
         <div><br><%= link_to 'Withdraw Application', current_user.application_for(@job.id), :method => :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger"%></div>
     <% else %>
         <% if Time.now > @job.deadline %>
-            <div>This job is expired.</div>
+            <div>This job has expired.</div>
         <% else %>
             <div><%= link_to 'Submit an Application', new_job_application_path(:job_id => @job.id), :class => "btn btn-default"%></div>
         <% end %>
@@ -48,5 +48,5 @@
 <% end %>
 
 <% if !current_user && Time.zone.now > @job.deadline %>
-    <div>This job is expired.</div>
+    <div>This job has expired.</div>
 <% end %>

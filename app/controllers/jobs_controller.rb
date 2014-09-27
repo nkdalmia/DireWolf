@@ -59,7 +59,7 @@ class JobsController < ApplicationController
     employer_id = @job.employer_id
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to employer_jobs_url(:id => employer_id), notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to employer_jobs_url(:id => employer_id), notice: 'Job was successfully deleted.' }
       format.json { head :no_content }
     end
   end
