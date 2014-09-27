@@ -16,7 +16,7 @@
   <tbody>
   <% @jobs.each do |job| %>
       <tr>
-        <td><%= link_to job.title, job, :class => "btn btn-link" %></td>
+        <td><%= link_to job.title, job, :class => "btn-link job-link" %></td>
         <td><%= job.description %></td>
         <td><%= job.category.name %></td>
         <td><%= job.deadline %></td>
