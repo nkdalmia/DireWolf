@@ -46,7 +46,7 @@ class AdminsController < ApplicationController
       if @admin.update(admin_params)
         sign_out(current_admin)
         sign_in(@admin, :bypass => true)
-        format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
+        format.html { redirect_to @admin, notice: 'Profile successfully updated.' }
         format.json { render :show, status: :ok, location: @admin }
       else
         format.html { render :edit }

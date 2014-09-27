@@ -12,17 +12,12 @@
 ::JobApplication::Status.create(:name => 'Future Interview')
 
 #Add Default Admin User
-Admin.create(:name => 'Govind Menon', :username => 'gmenon', :email => 'gmenon@ncsu.edu', :password => 'direwolfVAN_CSC517!', :password_confirmation => 'direwolfVAN_CSC517!')
+Admin.create(:name => 'Govind Menon', :username => 'gmenon', :email => 'gmenon@ncsu.edu', :password => 'welcome', :password_confirmation => 'welcome')
 
-#Add Default Categories Subjects
-
+#Add Categories
 Category.create(:name => 'Computer Science')
 Category.create(:name => 'Botany')
 Category.create(:name => 'Physics')
 Category.create(:name => 'Mathematics')
 Category.create(:name => 'Biology')
 Category.create(:name => 'Chemistry')
-
-#Add Some Employees
-
-#Add Some Users
