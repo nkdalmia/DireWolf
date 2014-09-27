@@ -8,10 +8,7 @@ class User < ActiveRecord::Base
   has_many :job_applications
 
   validates_presence_of :name
-  validates :email, presence: true, uniqueness: true
-
-  validates_presence_of :password, :on => :create
-  validates_confirmation_of :password
+  validates :email, uniqueness: true
 
   def applied_for(job_id)
     return true if self.job_applications.where(:job_id => job_id).first

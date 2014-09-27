@@ -5,10 +5,10 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div><%= f.label :username %>
-  <%= f.text_field :username, autofocus: true %></div>
+  <%= f.text_field :username, autofocus: true, :required => true %></div>
 
   <div><%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <%= f.password_field :password, autocomplete: "off", :required => true %></div>
 
   <div><%= f.submit "Log in", :class => "btn btn-default" %></div>
 <% end %>

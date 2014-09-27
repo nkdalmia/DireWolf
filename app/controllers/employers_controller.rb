@@ -32,7 +32,7 @@ class EmployersController < ApplicationController
 
     respond_to do |format|
       if @employer.save
-        format.html { redirect_to employers_path, notice: 'Employer is successfully created.' }
+        format.html { redirect_to employers_path, notice: 'Employer was successfully created.' }
         format.json { render :show, status: :created, location: @employer }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class EmployersController < ApplicationController
   def destroy
     @employer.destroy
     respond_to do |format|
-      format.html { redirect_to employers_url, notice: 'Employer was successfully destroyed.' }
+      format.html { redirect_to employers_url, notice: 'Employer was successfully removed.' }
       format.json { head :no_content }
     end
   end

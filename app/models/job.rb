@@ -5,7 +5,7 @@ class Job < ActiveRecord::Base
   has_many :applications, :class_name => "::JobApplication", :dependent => :destroy
 
   acts_as_taggable
-  validates_presence_of :title, :employer_id, :category_id, :title, :deadline
+  validates_presence_of :title, :employer_id, :category_id, :deadline
 
   def self.filter params
     query = Job.where("deadline >= ?", Time.zone.now)
