@@ -1,9 +1,38 @@
-Admin username/password: gmenon/welcome
+Admin:
+username: gmenon
+password: welcome
 
-VLC IP address: 152.7.99.43 (Port - 3000) Path to Direwolf folder: C:Usersvgarg2DireWolf
+VLC IP address: 152.7.99.43:3000 
 
-Planned improvements during re-submission phase:
 
-    Implement Features worth Extra Credit
+Admin:
 
-    UI upgrade to make it more user friendly and good looking
+a) An admin can create and manage more admins.
+
+b) An admin can register multiple Employers for the job portal.
+
+Employers:
+
+a) An Employer can post multiple jobs.
+
+b) An Employer can see the Job Applications for various job-seekers who have applied to the job.
+
+c) An Employer can update the status of a job application.
+
+
+Job-seekers:
+
+a) A Job-seeker can search for a job without registering
+
+b) A Job-seeker can apply for multiple jobs.
+
+c) A job-seeker needs to be logged in for applying to a job. He also gets recommendations based on the jobs he has applied.
+
+
+Extra features Implemented:
+
+a) When a job-seeker applies to a job a mail is sent out to the employer
+
+b) When the status of job application changes a mail is sent out to the job-seeker
+
+
