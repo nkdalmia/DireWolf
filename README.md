@@ -53,12 +53,12 @@ Path: ./app/controllers/job_applications_controller.rb
 Using the Site
 1) Use the drop-down on the top at the right-most position to access the login pages for different users(Job-Seeker, Employer, Admin).
 2) Job-Seeker Sign up page can be accessed from the Job-Seeker login page.
-3) Once a user(Job-seeker, Employer, Admin) logs in, the right-most dropdown changes and provides 
+3) Once a user(Job-seeker, Employer, Admin) logs in, the right-most dropdown changes and provides
   -> logout option
   -> link to 'My Profile': Used to view and edit profile
   -> Some User Specific functionality
-    -> For Employer nly
-      -> link to 'My Posted Jobs'
+    -> For Employer only
+        -> link to 'My Posted Jobs'
     -> For Job-seeker only
-      -> link to 'My Job Applications'
+        -> link to 'My Job Applications'
 4) The link 'DirwWolf Job Portal' at the top (on left most sider) can be used to access the respective user's home page at any time
