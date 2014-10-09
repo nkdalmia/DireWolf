@@ -46,7 +46,7 @@ Please note that since we do not have any SMTP server details, we cannot send ou
 Path: ./app/controllers/job_applications_controller.rb
   -> Lines 31: call to method notify_employer (method defined at lines 79-82) 
   -> Lines 46: call to method notify_status_change_to_user (method defined at lines 85-89)
-  -> You can also verify the log file in the folder "D:/Dev/rails_project/DireWolf/log/" to check that the mail was actually generated.
+  -> You can also verify the log file in the folder "C:/Users/Vgarg2/DireWolf/log/" to check that the mail was actually generated.
 
 Using the Site
 
