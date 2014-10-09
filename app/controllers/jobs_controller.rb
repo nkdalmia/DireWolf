@@ -16,7 +16,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = Job.new(:deadline => Date.today() + 90)
   end
 
   # GET /jobs/1/edit
