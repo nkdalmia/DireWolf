@@ -28,6 +28,7 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.save
+        notify_employer
         format.html { redirect_to user_applications_path(:id => @job_application.user_id), notice: 'Job application was successfully submitted.' }
         format.json { render :show, status: :created, location: @job_application }
       else
@@ -42,6 +43,7 @@ class JobApplicationsController < ApplicationController
   def update
     respond_to do |format|
       if @job_application.update(job_application_params)
+        notify_status_change_to_user
         format.html { redirect_to @job_application, notice: 'Application was successfully updated.' }
         format.json { render :show, status: :ok, location: @job_application }
       else
@@ -73,4 +75,18 @@ class JobApplicationsController < ApplicationController
     def job_application_params
       params.require(:job_application).permit(:job_id, :user_id, :cover_letter, :status_id)
     end
+
+  def notify_employer
+    SimpleMailer.send_email(@job_application.job.employer.email, 'New Job Application Received',
+                            "#{@job_application.user.name} has applied for the job position \"#{@job_application.job.title}\"").deliver
+  end
+
+
+  def notify_status_change_to_user
+    if (params['job_application']['old_status_id'] != @job_application.status_id.to_s())
+      message = "The status of your job application for the position of \"#{@job_application.job.title}\" at \"#{@job_application.job.employer.company_name}\" has been changed to \"#{@job_application.status.name}\""
+      SimpleMailer.send_email(@job_application.user.email, 'Your Job Application Status has Changed', message).deliver
+    end
+  end
+
 end

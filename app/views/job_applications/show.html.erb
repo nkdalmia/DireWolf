@@ -40,6 +40,7 @@
 </div>
 
 <%= form_for(@job_application) do |f| %>
+    <%= f.hidden_field :old_status_id, :value => @job_application.status_id %>
     <%= f.collection_select :status_id, JobApplication::Status.all, :id, :name %><br>
     <%= f.submit "Change" , :class => "btn btn-default"%>
 <% end %>
