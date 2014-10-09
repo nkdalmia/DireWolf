@@ -29,7 +29,7 @@ a) A Job-seeker can search for a job without registering.
 
 b) A Job-seeker can register (sign up) and access the below mentioned features.
 
-c) A Job-seeker can apply for multiple jobs (requires login).
+c) A Job-seeker can apply for multiple jobs (requires login). (Application can be submitted from the job detail page, which in turn can be accessed by clicking on the job's title which is a link) 
 
 d) A Job-seeker also gets recommendations based on the jobs he has applied (requires login). The recommendation algorithm uses tags of the jobs to which he has applied to show recommended jobs. (tags of a withdrawn application are not considered by the algorithm, unless those tags have been applied on some other job to which job-seeker has applied)
 
