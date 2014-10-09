@@ -35,4 +35,8 @@ a) When a job-seeker applies to a job a mail is sent out to the employer
 
 b) When the status of job application changes a mail is sent out to the job-seeker
 
+c) Please note that since we do not have any SMTP server details at the moment hence we cannot send out mails but the code is   actually there. You can verify this in the following path:
+
+Path: D:\Dev\rails_project\DireWolf\app\controllers\job_applications_controller.rb -> Lines 31-46
+
 
