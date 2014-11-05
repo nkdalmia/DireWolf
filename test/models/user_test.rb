@@ -1,5 +1,5 @@
 require 'test_helper'
-
+#comment
 class UserTest < ActiveSupport::TestCase
 
   test "cannot create user without email" do
