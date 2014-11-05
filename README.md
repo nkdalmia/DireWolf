@@ -2,7 +2,7 @@ Admin Credentials: username/password: gmenon/welcome
 
 VLC IP address: 152.7.99.43:3000 
 
-Scearios Covered
+Scearios Covered in our Application
 
 Admin:
 
