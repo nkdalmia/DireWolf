@@ -2,6 +2,7 @@ require 'test_helper'
 
 class EmployersControllerTest < ActionController::TestCase
   setup do
+	#add some change to verify sync
     @employer = employers(:one)
   end
 
