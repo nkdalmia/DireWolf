@@ -7,7 +7,7 @@ Admin:
 
 a) An Admin can add new Admins.
 
-b) An Admin can add and remove Employers.
+b) An Admin can add and also remove Employers.
 
 c) An Admin can view and update his own profile.
 
